@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    --pink: #ff5f8f;
+    --pink-dark: #d93668;
+    --cream: #fff7e9;
+    --brown: #653d2a;
+    --green: #70a95b;
+    --yellow: #ffd166;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    color: var(--brown);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.7) 0 4px, transparent 5px),
+        linear-gradient(#fff8e9, #ffe9ef 55%, #fff8e9);
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 720px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 70px 20px;
+    background:
+        linear-gradient(rgba(39, 92, 41, .25), rgba(255, 111, 154, .48)),
+        url("invitacion.jpg") center/cover;
+    isolation: isolate;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(255,255,255,.05) 60%, rgba(255,247,233,.65));
+    z-index: -1;
+}
+
+.hero-content {
+    width: min(900px, 94%);
+    text-align: center;
+    color: white;
+    text-shadow: 0 3px 12px rgba(67, 33, 19, .45);
+}
+
+.eyebrow {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: .9rem;
+}
+
+h1, h2, h3 {
+    font-family: "Baloo 2", cursive;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 9vw, 7rem);
+    line-height: .95;
+    margin: 15px 0;
+}
+
+h1 span {
+    color: #ffe27a;
+}
+
+.subtitle {
+    font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+    max-width: 650px;
+    margin: 0 auto 28px;
+    font-weight: 700;
+}
+
+.countdown-card {
+    width: min(700px, 100%);
+    margin: 0 auto 25px;
+    padding: 20px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.92);
+    color: var(--brown);
+    text-shadow: none;
+    box-shadow: 0 15px 45px rgba(62, 32, 20, .22);
+    backdrop-filter: blur(8px);
+}
+
+.countdown-title {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.countdown div {
+    background: #fff0f5;
+    border: 2px solid #ffd0df;
+    border-radius: 18px;
+    padding: 12px 6px;
+}
+
+.countdown strong {
+    display: block;
+    color: var(--pink-dark);
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1;
+}
+
+.countdown small {
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+.birthday-now {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--pink-dark);
+}
+
+.main-button,
+.music-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 15px 28px;
+    background: var(--pink);
+    color: white;
+    font: 800 1rem "Nunito", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #b82e59, 0 12px 25px rgba(185, 47, 91, .25);
+    transition: .2s ease;
+}
+
+.main-button:hover,
+.music-button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+}
+
+section {
+    padding: 75px 20px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    font-size: 2rem;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--pink-dark);
+    text-align: center;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.detail {
+    background: rgba(255,255,255,.85);
+    border: 2px dashed #f5a5bd;
+    border-radius: 28px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(119, 60, 38, .08);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.detail h3 {
+    font-size: 1.6rem;
+    color: var(--pink-dark);
+}
+
+.detail p {
+    margin-top: 8px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.photo-card {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 14px;
+    border-radius: 30px;
+    box-shadow: 0 20px 55px rgba(91, 49, 29, .18);
+    transform: rotate(-.6deg);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.photo-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 10px 7px;
+    flex-wrap: wrap;
+}
+
+.photo-caption strong {
+    color: var(--pink-dark);
+}
+
+.message {
+    padding-top: 25px;
+}
+
+.message-box {
+    background: #fff;
+    border: 3px solid #ffd1df;
+    border-radius: 35px;
+    padding: 45px 25px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(91, 49, 29, .1);
+}
+
+.cake {
+    font-size: 4.5rem;
+}
+
+.message-box h2 {
+    color: var(--pink-dark);
+    font-size: 2.8rem;
+    margin: 8px 0;
+}
+
+.message-box p {
+    max-width: 700px;
+    margin: 10px auto;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.big-message {
+    font-family: "Baloo 2", cursive;
+    color: var(--pink-dark);
+    font-size: 1.5rem !important;
+    font-weight: 800;
+}
+
+.music {
+    text-align: center;
+    background: #fff0c9;
+    border-radius: 35px;
+    margin: 30px 20px 70px;
+    padding: 45px 25px;
+}
+
+.music h2 {
+    color: var(--pink-dark);
+    font-size: 2.4rem;
+}
+
+.music p {
+    margin: 8px 0 20px;
+}
+
+.music small {
+    display: block;
+    margin-top: 20px;
+    opacity: .75;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(50, 26, 17, .65);
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 50;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    position: relative;
+    max-width: 520px;
+    width: 100%;
+    background: #fff8ed;
+    border: 4px solid #ffd166;
+    border-radius: 35px;
+    padding: 45px 28px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+    animation: pop .35s ease;
+}
+
+.surprise-icon {
+    font-size: 3rem;
+}
+
+.modal-box h2 {
+    color: var(--pink-dark);
+    font-size: 2.7rem;
+    margin: 10px 0;
+}
+
+.modal-box p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.special {
+    color: var(--pink-dark);
+    font-weight: 800;
+    margin: 12px 0 22px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: 0;
+    background: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--brown);
+}
+
+.confetti-piece {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    z-index: 100;
+    animation: fall 3.5s linear forwards;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #653d2a;
+    color: white;
+    font-weight: 700;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+@keyframes pop {
+    from { transform: scale(.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 720px) {
+    .hero {
+        min-height: 680px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown div {
+        padding: 10px 3px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-caption {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 55px 15px;
+    }
+}

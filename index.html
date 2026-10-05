@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff6b9a">
+    <title>🎂 Cumpleaños de Thiago</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="confetti" aria-hidden="true"></div>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <p class="eyebrow">🎈 UNA CELEBRACIÓN MUY ESPECIAL 🎈</p>
+            <h1>¡Feliz cumpleaños, <span>Thiago</span>!</h1>
+            <p class="subtitle">Prepárate para una aventura llena de diversión, sonrisas y mucho cariño.</p>
+
+            <div class="countdown-card">
+                <p class="countdown-title">⏰ Faltan...</p>
+                <div id="countdown" class="countdown">
+                    <div><strong id="days">0</strong><small>DÍAS</small></div>
+                    <div><strong id="hours">0</strong><small>HORAS</small></div>
+                    <div><strong id="minutes">0</strong><small>MINUTOS</small></div>
+                    <div><strong id="seconds">0</strong><small>SEGUNDOS</small></div>
+                </div>
+            </div>
+
+            <button class="main-button" id="surpriseBtn">🎁 Abrir sorpresa</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="invitation">
+            <div class="section-title">
+                <span>🐷</span>
+                <h2>¡Te esperamos!</h2>
+                <span>🐥</span>
+            </div>
+
+            <div class="details-grid">
+                <article class="detail">
+                    <div class="icon">📅</div>
+                    <h3>Fecha</h3>
+                    <p>10 de octubre de 2026</p>
+                </article>
+
+                <article class="detail">
+                    <div class="icon">🕚</div>
+                    <h3>Hora</h3>
+                    <p>11:00 de la mañana</p>
+                </article>
+
+                <article class="detail">
+                    <div class="icon">🏡</div>
+                    <h3>Lugar</h3>
+                    <p>Casa de los abuelitos de parte paterna</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="section-title">
+                <span>🌾</span>
+                <h2>Un día para recordar</h2>
+                <span>🎉</span>
+            </div>
+
+            <div class="photo-card">
+                <img src="invitacion.jpg" alt="Invitación del cumpleaños de Thiago">
+                <div class="photo-caption">
+                    <strong>🐷 El cerdito enojón y sus amigos</strong>
+                    <span>Una fiesta llena de colores, juegos y alegría.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="message">
+            <div class="message-box">
+                <div class="cake">🎂</div>
+                <h2>Para Thiago 💖</h2>
+                <p>
+                    Hoy celebramos un año más de tu vida.
+                    Que nunca te falten sonrisas, aventuras,
+                    abrazos y personas que te quieran muchísimo.
+                </p>
+                <p class="big-message">¡Que tengas un cumpleaños increíble! 🎊</p>
+            </div>
+        </section>
+
+        <section class="music">
+            <h2>🎵 Música de la fiesta</h2>
+            <p>Presiona el botón para comenzar la música.</p>
+            <button id="musicBtn" class="music-button">▶️ Reproducir música</button>
+            <audio id="birthdayMusic" loop>
+                <source src="musica.mp3" type="audio/mpeg">
+            </audio>
+            <small>Para usar tu canción, coloca un archivo llamado <b>musica.mp3</b> junto a este archivo.</small>
+        </section>
+    </main>
+
+    <div class="modal" id="surpriseModal">
+        <div class="modal-box">
+            <button class="close" id="closeModal">×</button>
+            <div class="surprise-icon">🎉🐷🎂🐥</div>
+            <h2>¡SORPRESA, THIAGO!</h2>
+            <p>Hoy la granja está de fiesta y todos vienen a celebrar contigo.</p>
+            <p class="special">💖 ¡Te queremos mucho! 💖</p>
+            <button class="main-button" id="confettiBtn">🎊 ¡Más confeti!</button>
+        </div>
+    </div>
+
+    <footer>
+        Hecho con mucho cariño para Thiago 💕
+    </footer>
+
+<script>
+    // Fecha del cumpleaños: 10 de octubre de 2026, 11:00 a. m.
+    const birthday = new Date("2026-10-10T11:00:00-05:00").getTime();
+
+    function updateCountdown() {
+        const now = Date.now();
+        const difference = birthday - now;
+
+        if (difference <= 0) {
+            document.getElementById("countdown").innerHTML =
+                '<div class="birthday-now">🎂 ¡HOY ES EL GRAN DÍA! 🎉</div>';
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / (1000 * 60)) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const modal = document.getElementById("surpriseModal");
+
+    document.getElementById("surpriseBtn").addEventListener("click", () => {
+        modal.classList.add("show");
+        createConfetti(80);
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => {
+        modal.classList.remove("show");
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) modal.classList.remove("show");
+    });
+
+    document.getElementById("confettiBtn").addEventListener("click", () => {
+        createConfetti(120);
+    });
+
+    function createConfetti(amount) {
+        for (let i = 0; i < amount; i++) {
+            const piece = document.createElement("span");
+            piece.className = "confetti-piece";
+            piece.style.left = Math.random() * 100 + "vw";
+            piece.style.animationDelay = Math.random() * 0.7 + "s";
+            piece.style.background = ["#ff4f81", "#ffd166", "#7bdff2", "#95d5b2", "#c77dff"][Math.floor(Math.random() * 5)];
+            piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+            document.body.appendChild(piece);
+
+            setTimeout(() => piece.remove(), 3500);
+        }
+    }
+
+    const music = document.getElementById("birthdayMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    musicBtn.addEventListener("click", () => {
+        if (music.paused) {
+            music.play().then(() => {
+                musicBtn.textContent = "⏸️ Pausar música";
+            }).catch(() => {
+                alert("Agrega tu archivo musica.mp3 a la carpeta de la página.");
+            });
+        } else {
+            music.pause();
+            musicBtn.textContent = "▶️ Reproducir música";
+        }
+    });
+</script>
+
+</body>
+</html>
